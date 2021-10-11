@@ -74,8 +74,11 @@ def main(argv):
     elif (argv[1] == "plan"):
         if (len(argv) > 1):
             selectedDietId = argv[2]
-        today = setDietDateToToday()
-        printDishesForDateAndDiet(today, selectedDietId)
+        if (len(argv) > 2):
+            getDietPlanForWeek(selectedDietId)
+        else:
+            today = setDietDateToToday()
+            printDishesForDateAndDiet(today, selectedDietId)
     else:
         print("Wrong argument, displaying avalible arguments")
         print(helpMessage)
